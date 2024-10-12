@@ -1,0 +1,63 @@
+@startuml
+entity "Domain" {
+  *id : INTEGER <<PK>>
+  --
+  name : TEXT
+}
+
+entity "SubDomain" {
+  *id : INTEGER <<PK>>
+  --
+  idDomain : INTEGER <<FK>>
+  name : TEXT
+}
+
+entity "Article" {
+  *id : INTEGER <<PK>>
+  --
+  numero : TEXT
+  date : DATE
+  definition : TEXT
+  notes : TEXT
+}
+
+entity "Term" {
+  *id : INTEGER <<PK>>
+  --
+  idArticle : INTEGER <<FK>>
+  word : TEXT
+  language : TEXT
+  statut : INTEGER
+}
+
+entity "ArticleTerms" {
+  *articleId : INTEGER <<PK, FK>>
+  *termId : INTEGER <<PK, FK>>
+}
+
+entity "ArticleDomains" {
+  *articleId : INTEGER <<PK, FK>>
+  *domainId : INTEGER <<PK, FK>>
+}
+
+entity "ArticleSubDomains" {
+  *articleId : INTEGER <<PK, FK>>
+  *subDomainId : INTEGER <<PK, FK>>
+}
+
+entity "ArticleRelations" {
+  *idArticleA : INTEGER <<PK, FK>>
+  *idArticleB : INTEGER <<PK, FK>>
+}
+
+' Relationships
+Domain ||--o{ SubDomain : "has"
+Article ||--o{ Term : "contains"
+Article ||--o{ ArticleTerms : "relates"
+Term ||--o{ ArticleTerms : "related by"
+Article ||--o{ ArticleDomains : "belongs to"
+Domain ||--o{ ArticleDomains : "has articles"
+Article ||--o{ ArticleSubDomains : "belongs to"
+SubDomain ||--o{ ArticleSubDomains : "has articles"
+Article ||-- ArticleRelations : "related to other articles"
+@enduml

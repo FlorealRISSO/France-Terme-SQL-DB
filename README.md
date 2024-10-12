@@ -6,6 +6,8 @@ This repository is dedicated to storing the **France Terme** dataset in the form
 
 The following tables are used in the database:
 
+![SQL Schema](./sql-schema.png)
+
 ### Domain Table
 ```sql
 CREATE TABLE IF NOT EXISTS Domain (
