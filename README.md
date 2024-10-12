@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS ArticleRelations (
 
 ## Related Repositories
 
-- **Repository to build the dataset**: [Link will be added later].
-- **Repository for the app using this database**: [Link to the app repo].
+- **Repository to build the dataset**: [France-Termes-Parser](https://github.com/FlorealRISSO/France-Termes-Parser).
+- **Repository for the app using this database**: [France-Termes-v2](https://github.com/FlorealRISSO/France-Termes-v2).
 
 Feel free to explore the data and integrate it into applications requiring French terminology resources!
